@@ -30,7 +30,7 @@ def peso_total(carga) -> int:
 
 while True:
     print(f"{AZUL} --- SISTEMA DE GESTIÓN DE CARGA ---{RESET}")
-    print(f"{AMARILLO}Peso actual: {sum(item["peso"] for item in carga)}{RESET}")
+    print(f"{AMARILLO}Peso actual: {peso_total(carga)}")
     print(f"{AMARILLO}Espacio disponible: {PESO_MAXIMO - peso_total(carga)}{RESET}")
 
     # Imprimir las diferentes opciones
