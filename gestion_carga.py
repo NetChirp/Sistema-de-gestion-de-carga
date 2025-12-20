@@ -13,6 +13,15 @@ carga = [
 ]
 
 PESO_MAXIMO = 5000
+opciones = [
+    "Agregar carga",
+    "Agregar carga prioritaria",
+    "Eliminar carga por nombre",
+    "Expulsión de emergencia",
+    "Análisis de carga",
+    "Reportes",
+    "Salir",
+]
 
 
 def peso_total(carga) -> int:
@@ -22,5 +31,29 @@ def peso_total(carga) -> int:
 while True:
     print(f"{AZUL} --- SISTEMA DE GESTIÓN DE CARGA ---{RESET}")
     print(f"{AMARILLO}Peso actual: {sum(item["peso"] for item in carga)}{RESET}")
-    print(f"{AMARILLO}Espacio disponible: {PESO_MAXIMO - peso_total(carga)}")
+    print(f"{AMARILLO}Espacio disponible: {PESO_MAXIMO - peso_total(carga)}{RESET}")
+
+    # Imprimir las diferentes opciones
+    for tarea in opciones:
+        print(f"{opciones.index(tarea)} {tarea}")
+
+    try:
+        realizar_opcion: int = int(input("Opción: "))
+        match realizar_opcion:
+            case 1:
+                pass
+            case 2:
+                pass
+            case 3:
+                pass
+            case 4:
+                pass
+            case 5:
+                pass
+            case 6:
+                pass
+            case _:
+                print(f"{ROJO}Opción no encontrada{RESET}")
+    except ValueError:
+        print(f"{ROJO}Debes introducir el numero de la acción a realizar{RESET}")
     break
