@@ -13,3 +13,14 @@ carga = [
 ]
 
 PESO_MAXIMO = 5000
+
+
+def peso_total(carga) -> int:
+    return sum(item["peso"] for item in carga)
+
+
+while True:
+    print(f"{AZUL} --- SISTEMA DE GESTIÓN DE CARGA ---{RESET}")
+    print(f"{AMARILLO}Peso actual: {sum(item["peso"] for item in carga)}{RESET}")
+    print(f"{AMARILLO}Espacio disponible: {PESO_MAXIMO - peso_total(carga)}")
+    break
