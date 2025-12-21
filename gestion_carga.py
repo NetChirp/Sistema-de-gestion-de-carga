@@ -56,4 +56,3 @@ while True:
                 print(f"{ROJO}Opción no encontrada{RESET}")
     except ValueError:
         print(f"{ROJO}Debes introducir el numero de la acción a realizar{RESET}")
-    break
