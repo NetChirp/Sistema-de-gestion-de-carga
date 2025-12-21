@@ -6,14 +6,14 @@ AZUL = "\033[34m"  # Para títulos
 RESET = "\033[0m"  # Para volver al color por defecto
 
 # Valores iniciales
-carga = [
+carga: list = [
     {"nombre": "Combustible", "peso": 2000, "tipo": "Propulsión"},
     {"nombre": "Comida", "peso": 500, "tipo": "Consumible"},
     {"nombre": "Oxígeno", "peso": 1000, "tipo": "Vital"},
 ]
 
-PESO_MAXIMO = 5000
-opciones = [
+PESO_MAXIMO: int = 5000
+opciones: list = [
     "Agregar carga",
     "Agregar carga prioritaria",
     "Eliminar carga por nombre",
@@ -26,6 +26,32 @@ opciones = [
 
 def peso_total(carga) -> int:
     return sum(item["peso"] for item in carga)
+
+
+def agregar_carga(carga) -> None:
+    pass
+
+
+def agregar_carga_prioritaria(carga) -> None:
+    pass
+
+
+def eliminar_carga_nombre(nombre_carga) -> None:
+    pass
+
+
+def expulsion_emergencia() -> None:
+    pass
+
+
+# Eliminar el None una vez esta hecha la funcion
+def analisis_carga() -> list | None:
+    pass
+
+
+# Eliminar el none una vez esta hecha la funcion
+def reportes() -> list | dict | None:
+    pass
 
 
 while True:
