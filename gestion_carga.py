@@ -78,6 +78,8 @@ while True:
     try:
         realizar_opcion: int = int(input("Opción: "))
         match realizar_opcion:
+            case 0:
+                agregar_carga()
             case 1:
                 pass
             case 2:
@@ -89,7 +91,7 @@ while True:
             case 5:
                 pass
             case 6:
-                pass
+                break
             case _:
                 print(f"{ROJO}Opción no encontrada{RESET}")
     except ValueError:
