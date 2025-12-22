@@ -28,8 +28,21 @@ def peso_total(carga) -> int:
     return sum(item["peso"] for item in carga)
 
 
-def agregar_carga(carga) -> None:
-    pass
+def agregar_carga() -> None:
+    try:
+        nombre: str = input("Nombre: ")
+        peso: int = int(input("Peso: "))
+        tipo: str = input("Tipo: ")
+
+        # TODO: Refactorizar este condicional. No evalua correctamente
+        if PESO_MAXIMO - peso_total(carga) <= 0:
+            print(f"{ROJO}Sobrecarga detectada, no se añadira el elemento.{RESET}")
+        else:
+            pass
+    except ValueError:
+        print(
+            f"{ROJO}El peso debe ser un numero entero, no un conjunto de letras.{RESET}"
+        )
 
 
 def agregar_carga_prioritaria(carga) -> None:
@@ -45,7 +58,7 @@ def expulsion_emergencia() -> None:
 
 
 # Eliminar el None una vez esta hecha la funcion
-def analisis_carga() -> list | None:
+def analisis_carga(carga) -> list | None:
     pass
 
 
