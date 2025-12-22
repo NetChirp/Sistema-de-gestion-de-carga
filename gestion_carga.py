@@ -37,7 +37,7 @@ def agregar_carga() -> None:
         if peso_total(carga) + peso >= PESO_MAXIMO:
             print(f"{ROJO}Sobrecarga detectada, no se añadira el elemento.{RESET}")
         else:
-            pass
+            carga.append(dict(nombre=nombre, peso=peso, tipo=tipo))
     except ValueError:
         print(
             f"{ROJO}El peso debe ser un numero entero, no un conjunto de letras.{RESET}"
