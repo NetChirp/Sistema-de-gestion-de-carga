@@ -34,8 +34,7 @@ def agregar_carga() -> None:
         peso: int = int(input("Peso: "))
         tipo: str = input("Tipo: ")
 
-        # TODO: Refactorizar este condicional. No evalua correctamente
-        if PESO_MAXIMO - peso_total(carga) <= 0:
+        if peso_total(carga) + peso >= PESO_MAXIMO:
             print(f"{ROJO}Sobrecarga detectada, no se añadira el elemento.{RESET}")
         else:
             pass
