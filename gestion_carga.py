@@ -45,7 +45,19 @@ def agregar_carga() -> None:
 
 
 def agregar_carga_prioritaria(carga) -> None:
-    pass
+    try:
+        nombre: str = input("Nombre: ")
+        peso: int = int(input("Peso: "))
+        tipo: str = input("Tipo: ")
+
+        if peso_total(carga) + peso >= PESO_MAXIMO:
+            print(f"{ROJO}Sobrecarga detectada, no se añadira el elemento.{RESET}")
+        else:
+            carga.insert(0, dict(nombre=nombre, peso=peso, tipo=tipo))
+    except ValueError:
+        print(
+            f"{ROJO}El peso debe ser un numero entero, no un conjunto de letras.{RESET}"
+        )
 
 
 def eliminar_carga_nombre(nombre_carga) -> None:
