@@ -37,6 +37,7 @@ def agregar_carga() -> None:
         if peso_total(carga) + peso >= PESO_MAXIMO:
             print(f"{ROJO}Sobrecarga detectada, no se añadira el elemento.{RESET}")
         else:
+            print(f"{VERDE}Carga añadida exitosamente{RESET}")
             carga.append(dict(nombre=nombre, peso=peso, tipo=tipo))
     except ValueError:
         print(
@@ -44,7 +45,7 @@ def agregar_carga() -> None:
         )
 
 
-def agregar_carga_prioritaria(carga) -> None:
+def agregar_carga_prioritaria() -> None:
     try:
         nombre: str = input("Nombre: ")
         peso: int = int(input("Peso: "))
@@ -53,6 +54,7 @@ def agregar_carga_prioritaria(carga) -> None:
         if peso_total(carga) + peso >= PESO_MAXIMO:
             print(f"{ROJO}Sobrecarga detectada, no se añadira el elemento.{RESET}")
         else:
+            print(f"{VERDE}Carga prioritaria añadida exitosamente{RESET}")
             carga.insert(0, dict(nombre=nombre, peso=peso, tipo=tipo))
     except ValueError:
         print(
@@ -60,12 +62,16 @@ def agregar_carga_prioritaria(carga) -> None:
         )
 
 
-def eliminar_carga_nombre(nombre_carga) -> None:
+def eliminar_carga_nombre() -> None:
+    nombre_carga: str = input("Nombre de la carga a eliminar: ")
     pass
 
 
 def expulsion_emergencia() -> None:
-    pass
+    nombre_elemento = carga[-1]
+    print(nombre_elemento)
+    carga.pop()  # Por defecto elimina el ultimo elemento en la lista, siendo -1 su indice
+    print(f"{AMARILLO}Alerta: Se ha expulsado  de la bodega{RESET}")
 
 
 # Eliminar el None una vez esta hecha la funcion
@@ -93,11 +99,11 @@ while True:
             case 0:
                 agregar_carga()
             case 1:
-                pass
+                agregar_carga_prioritaria()
             case 2:
                 pass
             case 3:
-                pass
+                expulsion_emergencia()
             case 4:
                 pass
             case 5:
