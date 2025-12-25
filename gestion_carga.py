@@ -73,7 +73,7 @@ def expulsion_emergencia() -> None:
 
 
 # Eliminar el None una vez esta hecha la funcion
-def analisis_carga(carga) -> list | None:
+def analisis_carga() -> list | None:
     pass
 
 
@@ -103,9 +103,9 @@ while True:
             case 3:
                 expulsion_emergencia()
             case 4:
-                pass
+                analisis_carga()
             case 5:
-                pass
+                reportes()
             case 6:
                 break
             case _:
