@@ -25,11 +25,7 @@ opciones: list = [
 
 
 def buscar_elemento(nombre) -> dict:
-    nombre = nombre  # Variable nombre es igual al valor del parametro
-    for i in carga:
-        if i["nombre"] == nombre:
-            nombre = i
-    return nombre
+    return {i["nombre"]: i for i in carga if i["nombre"] == nombre}
 
 
 def peso_total() -> int:
@@ -71,7 +67,7 @@ def agregar_carga_prioritaria() -> None:
 
 
 def eliminar_carga_nombre() -> None:
-    pass
+    print(buscar_elemento("Combustible"))
 
 
 def expulsion_emergencia() -> None:
