@@ -51,7 +51,7 @@ def agregar_carga_prioritaria() -> None:
         peso: int = int(input("Peso: "))
         tipo: str = input("Tipo: ")
 
-        if peso_total(carga) + peso >= PESO_MAXIMO:
+        if peso_total() + peso >= PESO_MAXIMO:
             print(f"{ROJO}Sobrecarga detectada, no se añadira el elemento.{RESET}")
         else:
             print(f"{VERDE}Carga prioritaria añadida exitosamente{RESET}")
@@ -64,6 +64,7 @@ def agregar_carga_prioritaria() -> None:
 
 def eliminar_carga_nombre() -> None:
     pass
+
 
 def expulsion_emergencia() -> None:
     nombre_elemento = carga[-1]
