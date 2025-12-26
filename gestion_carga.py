@@ -65,7 +65,6 @@ def agregar_carga_prioritaria() -> None:
 def eliminar_carga_nombre() -> None:
     pass
 
-
 def expulsion_emergencia() -> None:
     nombre_elemento = carga[-1]
     print(nombre_elemento)
