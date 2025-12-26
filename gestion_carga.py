@@ -24,6 +24,14 @@ opciones: list = [
 ]
 
 
+def buscar_elemento(nombre) -> dict:
+    nombre = nombre  # Variable nombre es igual al valor del parametro
+    for i in carga:
+        if i["nombre"] == nombre:
+            nombre = i
+    return nombre
+
+
 def peso_total() -> int:
     return sum(item["peso"] for item in carga)
 
@@ -64,6 +72,7 @@ def agregar_carga_prioritaria() -> None:
 
 def eliminar_carga_nombre() -> None:
     pass
+
 
 def expulsion_emergencia() -> None:
     nombre_elemento = carga[-1]
