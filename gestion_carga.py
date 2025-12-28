@@ -32,6 +32,9 @@ def peso_total(carga) -> int:
     return sum(item["peso"] for item in carga)
 
 
+# TODO: Refactorizar agregar_carga() y agregar_carga_prioritaria(). Se repite demasiado codigo
+
+
 def agregar_carga() -> None:
     try:
         nombre: str = input("Nombre: ")
@@ -68,9 +71,12 @@ def agregar_carga_prioritaria() -> None:
 
 def eliminar_carga_nombre() -> None:
     nombre_carga: str = input("Nombre de la carga a eliminar: ")
+    d = peso_total(carga)
+    print(d)
 
 
 def expulsion_emergencia() -> None:
+    nombre_elemento = carga[-1]
     carga.pop()  # Por defecto elimina el ultimo elemento en la lista, siendo -1 su indice
     print(f"{AMARILLO}Alerta: Se ha expulsado  de la bodega{RESET}")
 
