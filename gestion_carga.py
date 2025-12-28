@@ -112,9 +112,9 @@ while True:
             case 3:
                 expulsion_emergencia()
             case 4:
-                pass
+                analisis_carga(carga)
             case 5:
-                pass
+                reportes()
             case 6:
                 break
             case _:
