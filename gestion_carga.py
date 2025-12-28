@@ -68,8 +68,6 @@ def agregar_carga_prioritaria() -> None:
 
 def eliminar_carga_nombre() -> None:
     nombre_carga: str = input("Nombre de la carga a eliminar: ")
-    d = peso_total(carga)
-    print(d)
 
 
 def expulsion_emergencia() -> None:
