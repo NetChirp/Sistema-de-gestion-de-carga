@@ -13,7 +13,7 @@ carga: list = [
 ]
 
 PESO_MAXIMO: int = 5000
-opciones: list = [
+OPCIONES: list = [
     "Agregar carga",
     "Agregar carga prioritaria",
     "Eliminar carga por nombre",
@@ -106,8 +106,8 @@ while True:
     print(f"{AMARILLO}Espacio disponible: {PESO_MAXIMO - peso_total(carga)}{RESET}")
 
     # Imprimir las diferentes opciones
-    for tarea in opciones:
-        print(f"{opciones.index(tarea)} {tarea}")
+    for tarea in OPCIONES:
+        print(f"{OPCIONES.index(tarea)} {tarea}")
 
     try:
         realizar_opcion: int = int(input("Opción: "))
