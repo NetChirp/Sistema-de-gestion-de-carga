@@ -85,7 +85,9 @@ def eliminar_carga_nombre() -> None:
 def expulsion_emergencia() -> None:
     nombre_elemento = carga[-1]
     carga.pop()  # Por defecto elimina el ultimo elemento en la lista, siendo -1 su indice
-    print(f"{AMARILLO}Alerta: Se ha expulsado  de la bodega{RESET}")
+    print(
+        f"{AMARILLO}Alerta: Se ha expulsado {nombre_elemento["nombre"]} de la bodega{RESET}"
+    )
 
 
 # Eliminar el None una vez esta hecha la funcion
