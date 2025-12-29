@@ -25,6 +25,7 @@ opciones: list = [
 
 
 def buscar_elemento(nombre) -> dict:
+    # Implementación de dictionary comprehension
     return {i["nombre"]: i for i in carga if i["nombre"] == nombre}
 
 
@@ -37,9 +38,9 @@ def peso_total(carga) -> int:
 
 def agregar_carga() -> None:
     try:
-        nombre: str = input("Nombre: ")
+        nombre: str = input("Nombre: ").capitalize()
         peso: int = int(input("Peso: "))
-        tipo: str = input("Tipo: ")
+        tipo: str = input("Tipo: ").capitalize()
 
         if peso_total(carga) + peso >= PESO_MAXIMO:
             print(f"{ROJO}Sobrecarga detectada, no se añadira el elemento.{RESET}")
@@ -70,9 +71,15 @@ def agregar_carga_prioritaria() -> None:
 
 
 def eliminar_carga_nombre() -> None:
-    nombre_carga: str = input("Nombre de la carga a eliminar: ")
-    d = peso_total(carga)
-    print(d)
+    nombre: str = input("Nombre del elemento: ").capitalize()
+    if buscar_elemento(nombre):
+        # Iterar sobre una copia de carga
+        for i in carga[:]:
+            if i["nombre"] == nombre:
+                carga.remove(i)
+        print(f"{AMARILLO}{nombre} eliminado correctamente {RESET}")
+    else:
+        print(f"{ROJO}Elemento no encontrado{RESET}")
 
 
 def expulsion_emergencia() -> None:
