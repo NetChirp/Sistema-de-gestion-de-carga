@@ -111,9 +111,7 @@ def analisis_carga() -> None:
     print(f"Artículo más ligero: {mas_ligero['nombre']} ({mas_ligero['peso']} kg)")
 
 
-def reportes() -> (
-    list | None
-):  # En la medida de lo posible, siempre se retornara una lista
+def reportes() -> None:  # En la medida de lo posible, siempre se retornara una lista
     if not carga:
         print(f"{ROJO}No hay carga para generar reportes{RESET}")
         return None
@@ -132,8 +130,6 @@ def reportes() -> (
     # Mostrar resultados
     print(f"Ítems vitales: {items_vitales}")
     print(f"Estado de peso: {estado_peso}")
-
-    return [items_vitales, estado_peso]
 
 
 while True:
