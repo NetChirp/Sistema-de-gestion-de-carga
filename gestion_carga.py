@@ -84,20 +84,56 @@ def eliminar_carga_nombre() -> None:
 
 def expulsion_emergencia() -> None:
     nombre_elemento = carga[-1]
-    carga.pop()  # Por defecto elimina el ultimo elemento en la lista, siendo -1 su indice
+    carga.pop()
     print(
         f"{AMARILLO}Alerta: Se ha expulsado {nombre_elemento["nombre"]} de la bodega{RESET}"
     )
 
 
 # Eliminar el None una vez esta hecha la funcion
-def analisis_carga() -> list | None:
-    pass
+def analisis_carga() -> None:
+    # Verificar que la lista no esté vacía POR LO QUE SEA
+    if not carga:
+        print(f"{ROJO}No hay carga para analizar{RESET}")
+        return None
+
+    mas_pesado = carga[0]
+    for articulo in carga:
+        if articulo["peso"] > mas_pesado["peso"]:
+            mas_pesado = articulo
+
+    mas_ligero = carga[0]
+    for articulo in carga:
+        if articulo["peso"] < mas_ligero["peso"]:
+            mas_ligero = articulo
+
+    print(f"Artículo más pesado: {mas_pesado['nombre']} ({mas_pesado['peso']} kg)")
+    print(f"Artículo más ligero: {mas_ligero['nombre']} ({mas_ligero['peso']} kg)")
 
 
-# Eliminar el none una vez esta hecha la funcion
-def reportes() -> list | dict | None:
-    pass
+def reportes() -> (
+    list | None
+):  # En la medida de lo posible, siempre se retornara una lista
+    if not carga:
+        print(f"{ROJO}No hay carga para generar reportes{RESET}")
+        return None
+
+    # List comprehension: lista con nombres de artículos de tipo "Vital"
+    items_vitales = [
+        articulo["nombre"] for articulo in carga if articulo["tipo"] == "Vital"
+    ]
+
+    # Dict comprehension: diccionario con nombre y estado según peso
+    estado_peso = {
+        articulo["nombre"]: "LIGERO" if articulo["peso"] < 1000 else "PESADO"
+        for articulo in carga
+    }
+
+    # Mostrar resultados
+    print(f"Ítems vitales: {items_vitales}")
+    print(f"Estado de peso: {estado_peso}")
+
+    return [items_vitales, estado_peso]
 
 
 while True:
