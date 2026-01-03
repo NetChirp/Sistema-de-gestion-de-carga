@@ -26,6 +26,9 @@ OPCIONES: list = [
 
 def buscar_elemento(nombre) -> dict:
     # Implementación de dictionary comprehension
+    if not carga:
+        print(f"{ROJO}No hay elementos en la carga! Se devolvera un vacio{RESET}")
+
     return {i["nombre"]: i for i in carga if i["nombre"] == nombre}
 
 
@@ -77,7 +80,7 @@ def eliminar_carga_nombre() -> None:
         for i in carga[:]:
             if i["nombre"] == nombre:
                 carga.remove(i)
-        print(f"{AMARILLO}{nombre} eliminado correctamente {RESET}")
+        print(f"{VERDE}{nombre} eliminado correctamente {RESET}")
     else:
         print(f"{ROJO}Elemento no encontrado{RESET}")
 
@@ -107,8 +110,12 @@ def analisis_carga() -> None:
         if articulo["peso"] < mas_ligero["peso"]:
             mas_ligero = articulo
 
-    print(f"Artículo más pesado: {mas_pesado['nombre']} ({mas_pesado['peso']} kg)")
-    print(f"Artículo más ligero: {mas_ligero['nombre']} ({mas_ligero['peso']} kg)")
+    print(
+        f"{AMARILLO}Artículo más pesado: {mas_pesado['nombre']} ({mas_pesado['peso']} kg)"
+    )
+    print(
+        f"Artículo más ligero: {mas_ligero['nombre']} ({mas_ligero['peso']} kg){RESET}"
+    )
 
 
 def reportes() -> None:  # En la medida de lo posible, siempre se retornara una lista
@@ -128,8 +135,8 @@ def reportes() -> None:  # En la medida de lo posible, siempre se retornara una 
     }
 
     # Mostrar resultados
-    print(f"Ítems vitales: {items_vitales}")
-    print(f"Estado de peso: {estado_peso}")
+    print(f"{AMARILLO}Items vitales: {items_vitales}")
+    print(f"Estado de peso: {estado_peso}{RESET}")
 
 
 while True:
