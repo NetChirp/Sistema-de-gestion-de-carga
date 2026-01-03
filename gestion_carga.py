@@ -83,11 +83,14 @@ def eliminar_carga_nombre() -> None:
 
 
 def expulsion_emergencia() -> None:
-    nombre_elemento = carga[-1]
-    carga.pop()
-    print(
-        f"{AMARILLO}Alerta: Se ha expulsado {nombre_elemento["nombre"]} de la bodega{RESET}"
-    )
+    if not carga:
+        print(f"{ROJO}No hay carga!{RESET}")
+    else:
+        nombre_elemento = carga[-1]
+        carga.pop()
+        print(
+            f"{AMARILLO}Alerta: Se ha expulsado {nombre_elemento["nombre"]} de la bodega{RESET}"
+        )
 
 
 # Eliminar el None una vez esta hecha la funcion
@@ -120,7 +123,6 @@ def reportes() -> None:  # En la medida de lo posible, siempre se retornara una 
         print(f"{ROJO}No hay carga para generar reportes{RESET}")
         return None
 
-    # List comprehension: lista con nombres de artículos de tipo "Vital"
     items_vitales = [
         articulo["nombre"] for articulo in carga if articulo["tipo"] == "Vital"
     ]
@@ -131,9 +133,13 @@ def reportes() -> None:  # En la medida de lo posible, siempre se retornara una 
         for articulo in carga
     }
 
-    # Mostrar resultados
-    print(f"{AMARILLO}Items vitales: {items_vitales}")
-    print(f"Estado de peso: {estado_peso}{RESET}")
+    # En caso que vaya varios items en alguna de las dos, se imprimiran todos en lugar de devolver una lista
+    print(f"{AMARILLO}Items vitales: {RESET}")
+    for item in items_vitales:
+        print(item)
+    print(f"{AMARILLO}Estado de peso: {RESET}")
+    for nombre, estado in estado_peso.items():
+        print(f"{nombre}: {estado}")
 
 
 while True:
