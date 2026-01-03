@@ -36,9 +36,6 @@ def peso_total(carga) -> int:
     return sum(item["peso"] for item in carga)
 
 
-# TODO: Refactorizar agregar_carga() y agregar_carga_prioritaria(). Se repite demasiado codigo
-
-
 def agregar_carga() -> None:
     try:
         nombre: str = input("Nombre: ").capitalize()
