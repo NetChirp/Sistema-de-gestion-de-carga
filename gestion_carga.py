@@ -98,7 +98,6 @@ def analisis_carga() -> None:
     # Verificar que la lista no esté vacía POR LO QUE SEA
     if not carga:
         print(f"{ROJO}No hay carga para analizar{RESET}")
-        return None
 
     mas_pesado = carga[0]
     for articulo in carga:
@@ -121,7 +120,6 @@ def analisis_carga() -> None:
 def reportes() -> None:  # En la medida de lo posible, siempre se retornara una lista
     if not carga:
         print(f"{ROJO}No hay carga para generar reportes{RESET}")
-        return None
 
     items_vitales = [
         articulo["nombre"] for articulo in carga if articulo["tipo"] == "Vital"
